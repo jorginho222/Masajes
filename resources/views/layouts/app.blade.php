@@ -101,7 +101,7 @@
                         <a href="{{ route('welcome') }}">
                             <x-application-logo class="block " />
                         </a>
-                        <p class="ml-3 text-white text-lg font-medium">Desarrollado por Ivan Larrañaga © {{ now()->format('Y') }}</p>
+                        <p class="ml-3 text-white text-lg font-medium">v1.0 Desarrollado por Ivan Larrañaga © {{ now()->format('Y') }}</p>
                     </div>
                     <p class="ml-2 text-white text-lg font-medium">Morón, Buenos Aires, Argentina</p>
                 </div>

@@ -45,6 +45,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        if($user->id == 1) {
+            $user->forceFill(['admin_since' => now()]);
+            $user->save();
+        }
+
         event(new Registered($user));
 
         Auth::login($user);

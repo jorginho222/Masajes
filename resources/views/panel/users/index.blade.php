@@ -46,9 +46,11 @@
                             @csrf
 
                             @if($user->isAdmin())
-                                <button type="submit" value="{{ $user->id }}" class="openConfirmModal px-3 py-1 bg-red-100 border-2 border-red-600 rounded-md text-red-600 hover:bg-red-200">
-                                    Descartar administrador
-                                </button>
+                                @if($user->id != 1)
+                                    <button type="submit" value="{{ $user->id }}" class="openConfirmModal px-3 py-1 bg-red-100 border-2 border-red-600 rounded-md text-red-600 hover:bg-red-200">
+                                        Descartar administrador
+                                    </button>
+                                @endif
                             @else
                                 <button type="submit" value="{{ $user->id }}" class="openConfirmModal px-3 py-1 bg-green-100 border-2 border-green-600 rounded-md text-green-600 hover:bg-green-200">
                                     Designar administrador

@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                @if(isset(Auth::user()->name))
+                @if(optional(auth()->user())->isAdmin())
                 
                     <div class="hidden flex items-center space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-dropdown align="left" width="48">

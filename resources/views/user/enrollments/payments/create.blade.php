@@ -41,24 +41,21 @@ $preference->save();
 <div class="container mx-auto">
     
     <div class="flex justify-center">
-        <div class="my-6 bg-white pt-3 pb-6 pr-6 pl-6 shadow-lg">
-            <div class="max-w-md rounded overflow-hidden shadow-lg">
-                <p class="mb-3 text-gray-700 text-lg text-center">Confirmá tu inscripcion realizando el pago de la <strong>matrícula.</strong></p>
-                <div class="bg-indigo-500 w-full py-2">
+        <div class="mt-10 bg-white pt-3 pb-6 pr-6 pl-6 shadow-lg">
+            <div class="max-w-md rounded">
+                <p class="text-gray-700 text-lg text-center">Confirmá tu inscripción realizando el pago de la <strong>matrícula.</strong></p>
+                <div class="mt-6 bg-indigo-500 w-full py-1 rounded-t-md">
                     <h2 class="text-center text-white font-medium tracking-wider">Orden</h2>
                 </div>
         
                 <img src="{{ asset($order->course->image->path) }}" alt="">
         
-                <div class="py-2">
+                <div class="py-2 shadow-lg rounded-b-md">
         
                     <div class="flex justify-between px-2">
                         <div class="">
                             {{ $order->course->title }}
                         </div>
-                        {{-- <div>
-                            ${{ $order->course->enrollment }}
-                        </div> --}}
                     </div>
                     <div class="flex justify-between px-2">
                         <div class="font-medium text-lg">
@@ -82,12 +79,13 @@ $preference->save();
                 </div>
             </form> --}}
 
-            <div class="mt-6 flex justify-between">
-                <div class="cho-container"></div>
-                <div class="mr-2">
-                    <img src="{{ asset('img/mercadopago.webp') }}" alt="" width="110">
-                </div>
+            <div class="mt-6">
+                <img src="{{ asset('img/mdepago.png') }}" alt="" width="400">
             </div>
+            <div class="mt-6">
+                <p class="text-lg text-gray-700">Encontrá lo necesario para realizar el pago de prueba <a class="font-bold text-indigo-500" href="https://www.mercadopago.com.ar/developers/es/docs/checkout-pro/additional-content/test-cards" target="_blank" rel="noopener noreferrer">acá</a></p>
+            </div>
+            <div class="mt-6 cho-container"></div>
         </div>
 
     </div>
