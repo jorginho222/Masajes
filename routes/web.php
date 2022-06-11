@@ -42,7 +42,7 @@ Route::get('/google-callback', function() {
     $userExists = User::where('external_id', $user->id)->where('external_auth', 'google')->first();
     
     if($userExists) {
-        Auth::login($userExists);
+        Auth::login($userExists[0]);
     } else {
         $userNew = User::create([
             'name' => $user->name,
@@ -68,7 +68,7 @@ Route::get('/facebook-callback', function() {
     $userExists = User::where('external_id', $user->id)->where('external_auth', 'facebook')->first();
     
     if($userExists) {
-        Auth::login($userExists);
+        Auth::login($userExists[0]);
     } else {
         $userNew = User::create([
             'name' => $user->name,
