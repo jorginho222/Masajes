@@ -6,6 +6,8 @@
         <img src="{{ asset('img/logo_indigo.png') }}" width="70" alt="logo">
     </div>
 
+    <div class="my-4 fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
     <!-- Validation Errors -->
     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 

@@ -37,7 +37,7 @@
                     <label for="image" class="uppercase text-sm font-bold opacity-70">Foto de perfil</label>
                 
                     <div class="mt-2 mb-4 w-full flex justify-center">
-                        <img src="{{ isset($user->image->path) ? asset($user->image->path) : '' }}" class="rounded-full" width="300" alt="">
+                        <img src="{{ isset($user->profile_image) ? asset($user->profile_image) : '' }}" class="rounded-full" width="300" alt="">
                     </div>
                     
                     <input type="file" accept="image/*" name="image" class="p-2 mt-2 mb-4 w-full bg-slate-200 rounded" value=""> 
