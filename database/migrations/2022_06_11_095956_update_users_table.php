@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('password')->nullable()->change();
             $table->string('avatar')->nullable();
-            $table->integer('external_id')->nullable();
+            $table->string('external_id')->nullable();
             $table->string('external_auth')->nullable();
         });
     }
