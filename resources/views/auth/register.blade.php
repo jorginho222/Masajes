@@ -6,7 +6,16 @@
         <img src="{{ asset('img/logo_indigo.png') }}" width="70" alt="logo">
     </div>
 
-    <div class="my-4 fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+    <a class="my-4" href="{{ route('login.facebook') }}"> 
+        <div class="my-4 py-2 bg-blue-500 text-white font-medium text-center rounded-md">
+            Ingresar con Facebook
+        </div>
+    </a>
+    <a class="my-4" href="{{ route('login.google') }}"> 
+        <div class="my-4 py-2 bg-red-500 text-white font-medium text-center rounded-md">
+            Ingresar con Google
+        </div>
+    </a>
 
     <!-- Validation Errors -->
     <x-auth-validation-errors class="mb-4" :errors="$errors" />

@@ -6,8 +6,14 @@
     <div class="mt-6 bg-indigo-400 pt-1 pb-2">
         <h2 class="text-3xl text-center text-gray-50">Gestionar blog</h2>
     </div>
-    <div class="mt-6">
-        <x-panel-link :href="route('posts.create')">Agregar publicacion +</x-panel-link>
+    <div class="flex mt-6">
+
+        <div class="">
+            <x-panel-link :href="route('posts.create')">Agregar publicacion +</x-panel-link>
+        </div>
+        <div class="ml-4">
+            <x-panel-link :href="route('posts.create')">Agregar categoria +</x-panel-link>
+        </div>
     </div>
 
     @if(isset($userPosts[0]))

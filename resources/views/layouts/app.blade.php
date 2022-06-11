@@ -52,8 +52,6 @@
         
     </head>
     <body class="font-sans antialiased">
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v14.0&appId=5409104465812414&autoLogAppEvents=1" nonce="LihoolQY"></script>
         
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')

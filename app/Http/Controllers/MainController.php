@@ -42,6 +42,7 @@ class MainController extends Controller
 
         $somePosts = Post::latest()
             ->where('published', '=', '1')
+            ->where('id', '!=', $post->id)
             ->take(5)
             ->get();
 

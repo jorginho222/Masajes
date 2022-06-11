@@ -34,7 +34,7 @@ Route::get('/mail-sent', [ContactController::class, 'success'])->name('contact.s
 // Login
 Route::get('/login-google', function() {
     return Socialite::driver('google')->redirect();
-});
+})->name('login.google');
 
 Route::get('/google-callback', function() {
     $user = Socialite::driver('google')->user();
@@ -60,7 +60,7 @@ Route::get('/google-callback', function() {
 
 Route::get('/login-facebook', function() {
     return Socialite::driver('facebook')->redirect();
-});
+})->name('login.facebook');
 
 Route::get('/facebook-callback', function() {
     $user = Socialite::driver('facebook')->user();

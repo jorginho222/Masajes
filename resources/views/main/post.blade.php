@@ -58,7 +58,7 @@
                     
                     <input name="post_id" class="post_id" value="{{$post->id}}" type="hidden">
                     <textarea name="content" id="" class="content p-2 mt-2 w-full bg-slate-200 rounded" cols="1" rows="2" value="{{ old('content') }}" placeholder="Añade un comentario"></textarea>
-                    <input type="submit" class="add_comment my-3 py-2 px-6 bg-orange-400 text-white font-medium rounded hover:bg-indigo-500 cursor-pointer ease-in-out duration-300" value="Comentar">
+                    <input type="submit" class="add_comment my-3 py-2 px-6 bg-orange-400 text-white font-medium rounded {{ auth()->user() ? 'hover:bg-indigo-500 cursor-pointer ease-in-out duration-300' : '' }}" {{ auth()->user() ? '' : 'disabled' }} value="{{ auth()->user() ? 'Comentar' : 'Inicia sesion para comentar'}}">
                 </form>
             </div>
         </div>

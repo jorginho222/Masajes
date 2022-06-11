@@ -3,12 +3,12 @@
 <div class="bg-orange-200">
     
     <div class="container mx-auto pb-6">
-        <div class="grid grid-cols-2 gap-10">
+        <div class="mt-10 grid grid-cols-2 gap-10">
 
             @foreach ($courses as $course)
-                <div class="overflow-hidden">
+                <div class="mb-6 overflow-hidden">
                     @if(isset($course->image->path))
-                    <img class=" mt-6 w-full rounded-lg" src="{{ asset($course->image->path) ? asset($course->image->path) : '' }}" alt="Imagen servicio">
+                    <img class="w-full rounded-lg" src="{{ asset($course->image->path) ? asset($course->image->path) : '' }}" alt="Imagen servicio">
                     @endif
                     <div class="mt-4">
                         <div class="px-6 py-3 bg-white rounded-lg border-gray-300 border-2 border-dotted">
