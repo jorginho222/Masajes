@@ -108,9 +108,13 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getProfileImageAttribute()
     {
-        return $this->image
-            ? "{$this->image->path}"
-            : 'https://es.gravatar.com/avatar?d=mp';
+        if($this->image) {
+            return "{$this->image->path}";
+        }
+        if ($this->avatar) {
+            return "{$this->avatar}";
+        }
+        return 'https://es.gravatar.com/avatar?d=mp';
     }
 
 }
