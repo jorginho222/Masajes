@@ -39,8 +39,8 @@ Route::get('/login-google', function() {
 Route::get('/google-callback', function() {
     $user = Socialite::driver('google')->user();
 
-    $userExists = User::where('external_id', $user->id)->where('external_auth', 'google')->first();
-    dd($userExists);
+    $userExists = User::where('external_id', $user[0]->id)->where('external_auth', 'google')->first();
+
     if($userExists) {
         Auth::login($userExists);
     } else {
@@ -65,8 +65,7 @@ Route::get('/login-facebook', function() {
 Route::get('/facebook-callback', function() {
     $user = Socialite::driver('facebook')->user();
 
-    $userExists = User::where('external_id', $user->id)->where('external_auth', 'facebook')->first();
-    dd($userExists);
+    $userExists = User::where('external_id', $user[0]->id)->where('external_auth', 'facebook')->first();
 
     if($userExists) {
         Auth::login($userExists);
