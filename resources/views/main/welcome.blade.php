@@ -9,21 +9,18 @@
                     <img class="rounded-full" src="{{ asset('img/portada2.jpg') }}" width="500" alt="">
                     
                     <div class="mt-6 lg:ml-20 ">  
-                        <div class="py-5 px-4 border-2 border-dotted border-indigo-300 rounded-lg">
-                            <div class="flex justify-center">
-                                <img src="{{ asset('img/logo_indigo.png') }}" width="70" alt="logo">
-                                <h2 class="ml-4 mt-3 text-3xl text-indigo-400 font-medium text-center tracking-wider ">Somos Aurora Masajes & Spa!</h2>
-                            </div>
-                            <p class="mt-5 leading-loose text-lg text-center text-gray-600">
+                        <div class="flex justify-center">
+                            <img src="{{ asset('img/logo_indigo.png') }}" width="70" alt="logo">
+                            <h2 class="ml-4 mt-3 text-3xl text-indigo-400 font-medium text-center tracking-wider ">Somos Aurora Masajes & Spa!</h2>
+                        </div>
+                        <div class="mt-4 py-3 px-4 border border-gray-300 rounded-lg bg-gray-200">
+                            <p class="leading-loose text-lg text-center font-medium text-indigo-800">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius leo justo. Sed scelerisque sit amet dolor non auctor. Nulla eu justo id mi placerat ullamcorper. Duis ut tincidunt libero. Ut maximus dictum libero, quis mattis sem. Vivamus eu luctus leo. Sed a massa eu orci sagittis tempor eu nec nulla. Nam viverra commodo urna, ac gravida quam placerat quis. Duis semper dapibus arcu. Nullam a lacus eget risus commodo finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla ut lorem ipsum. Nulla quis volutpat risus. Nulla hendrerit dui at condimentum commodo. Curabitur nec hendrerit nunc.
                             </p>
                         </div>
                         <div id="mira" class="mt-10 flex justify-evenly">
-
-                            <x-app-link :href="route('bookings.index')" class="rounded-full ">
-                                Reservá tu turno!
-                            </x-app-link>
-                            <a  class="bg-indigo-500 inline-flex items-center px-3 py-2 text-lg font-medium leading-5 text-white hover:bg-indigo-600 hover:text-gray-100 focus:outline-none transition duration-150 ease-in-out" href="#servicios">Mirá nuestros servicios</a>
+                            <a  class="bg-orange-300 inline-flex items-center px-4 pt-2 pb-3 rounded-full text-lg font-medium leading-5 text-white hover:bg-yellow-400 hover:text-gray-100 focus:outline-none transition duration-150 ease-in-out" href="{{route('bookings.index')}}">Sacá tu turno!</a>
+                            <a  class="bg-indigo-400 inline-flex items-center px-4 pt-2 pb-3 rounded-full text-lg font-medium leading-5 text-white" href="#servicios">Mirá nuestros servicios</a>
                             {{-- <script>
                                 document.getElementById("servicios").scrollIntoView({
                                     behavior: 'smooth'
@@ -248,19 +245,27 @@
             </div>
             <div>
                 <img class="rounded-full" src="{{ asset('img/team/4.jpg') }}" alt="">
-                <div class="font-bold text-center text-xl mt-4">El ex novio</div>
+                <div class="font-bold text-center text-xl mt-4">Lorena</div>
             </div>
             <div>
                 <img class="rounded-full" src="{{ asset('img/team/5.jpg') }}" alt="">
-                <div class="font-bold text-center text-xl mt-4">Lorena</div>
+                <div class="font-bold text-center text-xl mt-4">El ex novio</div>
             </div>
         </div>
         
-        <h3 class="text-3xl tracking-wider text-center text-indigo-500">Contamos con una amplia experiencia...</h3>
-        <p class="py-5 text-xl tracking-wider text-center">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu pulvinar felis. Praesent nisl sapien, fringilla et ultricies et, iaculis in orci. Aliquam ultrices at ligula sed ullamcorper. Aenean mattis at elit fringilla venenatis. Fusce eleifend, lacus ac interdum scelerisque, dui mi pharetra est, non sollicitudin massa tellus at orci. Fusce quis auctor risus, id volutpat risus. Morbi porttitor sodales quam, sed interdum ligula. 
-        </p>
+        <h3 class="text-3xl tracking-wider text-center font-medium text-indigo-600">Contamos con los mejores profesionales...</h3>
+        <div class="flex justify-center ">
+            
+            <div class="mt-5 p-3 max-w-5xl border-2 border-dotted border-indigo-400 rounded-lg">
+                <p class="text-gray-600 font-medium">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, quaerat, rem eum cum tenetur ratione 
+                    repellendus nostrum ipsum quia expedita deserunt ab saepe commodi laboriosam officiis 
+                    velit veritatis incidunt eos! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus consequatur 
+                    eius vero odit itaque ullam quaerat perferendis! Repellendus quia aspernatur earum. Qui consequatur 
+                    dicta explicabo reprehenderit doloremque cumque ipsam. Odit!
+                </p>
+            </div>
+        </div>
         
     </div>
 
