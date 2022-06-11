@@ -38,7 +38,7 @@ Route::get('/login-google', function() {
 
 Route::get('/google-callback', function() {
     $user = Socialite::driver('google')->user();
-
+    dd($user);
     $userExists = User::where('external_id', $user->id)->where('external_auth', 'google')->first();
     
     if($userExists) {
@@ -55,7 +55,7 @@ Route::get('/google-callback', function() {
         Auth::login($userNew);
     }
     
-    return redirect()->route('welcome');
+    return redirect('/');
 });
 
 Route::get('/login-facebook', function() {
@@ -64,7 +64,7 @@ Route::get('/login-facebook', function() {
 
 Route::get('/facebook-callback', function() {
     $user = Socialite::driver('facebook')->user();
-
+    dd($user);
     $userExists = User::where('external_id', $user->id)->where('external_auth', 'facebook')->first();
     
     if($userExists) {
@@ -81,7 +81,7 @@ Route::get('/facebook-callback', function() {
         Auth::login($userNew);
     }
     
-    return redirect()->route('welcome');
+    return redirect('/');
 });
 
 require __DIR__.'/auth.php';
