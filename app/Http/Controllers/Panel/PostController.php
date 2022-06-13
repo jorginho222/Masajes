@@ -7,6 +7,7 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,22 +18,27 @@ class PostController extends Controller
         $userPosts = Post::where('user_id', '=', $request->user()->id)
             ->orderBy('created_at', 'DESC')
             ->get();
-
             // dd($userPosts[0]->user->name);
+
+        $categories = Category::all();
                   
         return view('panel.posts.index')->with([
-            'userPosts' => $userPosts
+            'userPosts' => $userPosts,
+            'categories' => $categories
         ]);
     }
 
     public function create()
     {
-        return view('panel.posts.create');
+        return view('panel.posts.create')->with([
+            'categories' => Category::all()
+        ]);
     }
 
     public function validation(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'category_id' => ['required'],
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:1000'],
             'content' => ['required', 'string', 'max:3000'],
@@ -86,6 +92,7 @@ class PostController extends Controller
 
         return view('panel.posts.edit')->with([
             'post' => $post,
+            'categories' => Category::all(),
         ]);
     }
 
@@ -109,7 +116,7 @@ class PostController extends Controller
 
         return redirect()
             ->route('posts.index')
-            ->withSuccess("La publicacion con el titulo \"{$post->title}\" ha sido editada.");
+            ->withSuccess("La publicacion con id {$post->id} ha sido editada.");
     }
 
     public function destroy(Post $post)

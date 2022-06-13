@@ -9,7 +9,7 @@
             <form 
                 id="serviceForm"
                 method="POST" 
-                action="{{ route('services.store') }} "
+                action="{{ route('services.store') }}"
                 enctype="multipart/form-data">
 
                 <h2 class="text-2xl text-center">Crear nuevo servicio</h2>

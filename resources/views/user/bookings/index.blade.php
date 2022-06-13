@@ -6,7 +6,7 @@
     <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
     
         <div class="">
-            <div class="mt-10 bg-white shadow-lg rounded-lg">
+            <div class="mt-10 bg-white max-w-2xl shadow-lg rounded-lg">
                 <div class=" bg-indigo-400 py-1 rounded-t-lg">
                     <h1 class="text-2xl text-white text-center font-medium ">Mis turnos</h1>
                 </div>
@@ -54,7 +54,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                
+                        
+                        <p class="mt-3 text-gray-500">Si desea cambiar el día y/o el horario de su reserva, envíenos con anticipacion un <a class="text-indigo-400" href="{{ route('contact') }}">mensaje</a> detallando los cambios.</p>
+
                         @else
                         <p class="text-gray-500 my-6">No contás con ninguna reserva confirmada por el momento.</p>
                     @endif

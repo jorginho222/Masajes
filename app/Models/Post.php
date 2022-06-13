@@ -19,6 +19,7 @@ class Post extends Model
         'content',
         'published',
         'user_id',
+        'category_id',
     ];
 
     protected $casts = [
@@ -30,9 +31,9 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->hasOne(Category::class, 'post_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function comments()

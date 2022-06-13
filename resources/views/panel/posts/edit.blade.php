@@ -21,6 +21,14 @@
                     @csrf
                     @method('PUT')
 
+                    <label class="uppercase text-sm font-bold opacity-70">Categoría</label>
+                    <select class="category_id p-2 mt-2 mb-4 w-full bg-slate-200 rounded" name="category_id" id="">
+                        <option value="" selected>Seleccione Categoría...</option>
+                        @foreach ($categories as $category )
+                            <option {{ $post->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}" >{{ $category->title }}</option>
+                        @endforeach
+                    </select>
+
                     <label for="title" class="uppercase text-sm font-bold opacity-70">Titulo</label>
                     <input type="text" name="title" class="title p-2 mt-2 mb-4 w-full bg-slate-200 rounded" value="{{ old('title') ?? $post->title }}">
     
@@ -57,6 +65,7 @@
     $(document).on('click', '.initValidation', function (e) {
         e.preventDefault();
         var data = {
+            'category_id': $('.category_id').val(),
             'title': $('.title').val(),
             'description': $('.description').val(),
             'content': $('.content').val(),

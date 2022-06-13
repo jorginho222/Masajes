@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Course;
@@ -33,7 +34,24 @@ class MainController extends Controller
 
         return view('main.blog')->with([
             'posts' => $posts,
+            'categories' => Category::all(),
         ]);
+    }
+
+    public function categoryPosts(Category $category)
+    {
+        $posts = Post::latest()
+            ->where('published', '=', '1')
+            ->where('category_id', '=', $category->id)
+            ->get();
+
+            
+        return view('main.blog')->with([
+            'selectedcategory' => $category->title,
+            'posts' => $posts,
+            'categories' => Category::all(),
+        ]);
+
     }
 
     public function post(Post $post)

@@ -2,70 +2,126 @@
 @section('content')
 
 <div class="container mx-auto pb-6">
+    <div class="grid grid-cols-3 gap-4">
 
-    <div class="mt-6 bg-indigo-400 pt-1 pb-2">
-        <h2 class="text-3xl text-center text-gray-50">Gestionar blog</h2>
-    </div>
-    <div class="flex mt-6">
-
-        <div class="">
-            <x-panel-link :href="route('posts.create')">Agregar publicacion +</x-panel-link>
-        </div>
-        <div class="ml-4">
-            <x-panel-link :href="route('posts.create')">Agregar categoria +</x-panel-link>
-        </div>
-    </div>
-
-    @if(isset($userPosts[0]))
-
-        <div class="mt-6 grid grid-cols-3 gap-6">
-            
-            @foreach ($userPosts as $userPost)
-                
-            <div class="max-w-lg rounded-lg  overflow-hidden">
-                @if(isset($userPost->image->path))
-                <img class="w-full" src="{{ asset($userPost->image->path) }}" width="600" alt="Sunset in the mountains">
-                @endif
-
-                <div class="bg-gray-200">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl">(ID: {{ $userPost->id }}) {{ $userPost->title }}</div>
-                        <div class="my-2 border-b border-gray-300"></div>
-                        <p class="">Escrito el <span class="text-orange-400 font-medium">{{$userPost->created_at->format('d/m/y')}}</span> a las <span class="font-medium text-orange-400">{{$userPost->created_at->format('H:i')}}</span></p>
-                        @if ($userPost->created_at != $userPost->updated_at)
-                            <p class="">Editado el <span class="text-orange-400 font-medium">{{$userPost->updated_at->format('d/m/y')}}</span> a las <span class="text-orange-400 font-medium">{{$userPost->updated_at->format('H:i')}}</span></p>       
+        <div class="col-span-2 mt-6">
+            <div class="bg-indigo-400 pt-1 pb-2">
+                <h2 class="text-3xl text-center text-gray-50">Publicaciones</h2>
+            </div>
+            <div class="mt-6">
+                <x-panel-link :href="route('posts.create')">Agregar publicacion +</x-panel-link>
+            </div>
+            @if(isset($userPosts[0]))
+        
+                <div class="mt-6 grid grid-cols-2 gap-4">
+                    
+                    @foreach ($userPosts as $userPost)
+                        
+                    <div class="max-w-lg rounded-lg  overflow-hidden">
+                        @if(isset($userPost->image->path))
+                        <img class="w-full" src="{{ asset($userPost->image->path) }}" width="350" alt="Sunset in the mountains">
                         @endif
+        
+                        <div class="bg-gray-200">
+                            <div class="px-6 py-4">
+                                <div class="font-bold text-xl">(ID: {{ $userPost->id }}) {{ $userPost->title }}</div>
+                                <div class="my-2 border-b border-gray-300"></div>
+                                <p class="">Escrito el <span class="text-orange-400 font-medium">{{$userPost->created_at->format('d/m/y')}}</span> a las <span class="font-medium text-orange-400">{{$userPost->created_at->format('H:i')}}</span></p>
+                                @if ($userPost->created_at != $userPost->updated_at)
+                                    <p class="">Editado el <span class="text-orange-400 font-medium">{{$userPost->updated_at->format('d/m/y')}}</span> a las <span class="text-orange-400 font-medium">{{$userPost->updated_at->format('H:i')}}</span></p>       
+                                @endif
+        
+                                <p class="mt-2 text-gray-700 text-base">
+                                    {{ $userPost->description }}
+                                </p>
+        
+                                <div class="mt-2 font-medium text-orange-400">Categoria: {{ $userPost->category->title }}</div>
+                                <div class="mt-1 font-medium text-indigo-700">Estado: {{ $userPost->status }}</div>
 
-                        <p class="mt-2 text-gray-700 text-base">
-                            {{ $userPost->description }}
-                        </p>
+                                <div class="mt-4">
+                                    <x-edit-link :href="route('posts.edit', ['post' => $userPost->id])" class="mr-2"> Editar </x-edit-link>
+                                    <form id="{{ $userPost->id }}" method="POST" class="inline-block" action="{{ route('posts.destroy', ['post' => $userPost->id]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <x-delete-button class="openConfirmModal" value="{{ $userPost->id }}">Eliminar</x-delete-button>
+                                    </form>
+                                </div>
+        
+                            </div>
+                        </div>
+                        <div class="flex justify-center bg-indigo-400 hover:cursor-pointer " >
+                            <a href="{{ route('posts.show', ['post' => $userPost->id]) }}" class="text-white text-lg px-4 py-2">Ver publicación</a>
+                        </div>
+                    </div>
+                    @endforeach
+        
+                </div>
+        
+                @else
+                <p class="mt-6">No tenés ninguna publicacion por el momento.</p>
+        
+            @endif
+        </div>
+        <div class="mt-6">
+            <div class="bg-indigo-400 pt-1 pb-2">
+                <h2 class="text-3xl text-center text-gray-50">Categorias</h2>
+            </div>
+            <div class="mt-6">
+                <x-panel-link :href="route('categories.create')" class="openAddCategoryModal">Agregar categoria +</x-panel-link>
+            </div>
 
-                        <div class="mt-2 font-bold text-indigo-700">Estado: {{ $userPost->status }}</div>
+            @if(isset($categories[0]))
+                <ul class="mt-6">
+                    @foreach ($categories as $category)
+                        <li class="mt-2 text-xl text-center font-medium text-orange-400">#{{ $category->title }}</li>    
+                    @endforeach
+                </ul>
+            @else
+                <p class="mt-6">No se ha registrado ninguna categoría.</p>
+            @endif
+        </div>
+    </div>
+</div>
 
-                        <div class="mt-4">
-                            <x-edit-link :href="route('posts.edit', ['post' => $userPost->id])" class="mr-2"> Editar </x-edit-link>
-                            <form id="{{ $userPost->id }}" method="POST" class="inline-block" action="{{ route('posts.destroy', ['post' => $userPost->id]) }}">
+{{-- Add category Modal --}}
+
+<div class="fixed z-10 inset-0 invisible overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="categoryModal">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">​</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                                Nueva categoría
+                            </h3>
+                            <form 
+                                id="categoryForm"
+                                method="POST" 
+                                action="{{ route('categories.store') }}">
+                                <hr class="my-3">
+                                <div class="">
+                                    <ul id="showErrors"></ul>
+                                </div>
                                 @csrf
-                                @method('DELETE')
-                                <x-delete-button class="openConfirmModal" value="{{ $userPost->id }}">Eliminar</x-delete-button>
+                                <label for="title" class="uppercase text-sm font-bold opacity-70">Titulo</label>
+                                <input type="text" name="title" class="title block p-2 mt-2 mb-2 w-96 bg-gray-100 rounded">
                             </form>
                         </div>
-
                     </div>
-                </div>
-                <div class="flex justify-center bg-indigo-400 hover:cursor-pointer " >
-                    <a href="{{ route('posts.show', ['post' => $userPost->id]) }}" class="text-white text-lg px-4 py-2">Ver publicación</a>
-                </div>
             </div>
-            @endforeach
-
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button type="button" class="addCategory w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    Agregar
+                </button>
+                <button type="button" class="closeCategoryModal mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    Cancelar
+                </button>
+            </div>
         </div>
-
-        @else
-        <p class="mt-6">No tenés ninguna publicacion por el momento.</p>
-
-    @endif
-
+    </div>
 </div>
 
 {{-- Delete Modal --}}
@@ -111,6 +167,48 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function () {
+            $('.openAddCategoryModal').on('click', function(e){
+                e.preventDefault();
+                $('#categoryModal').removeClass('invisible');
+                $('#showErrors').html("");
+                
+                $('.closeCategoryModal').on('click', function(e){
+                    $('#categoryModal').addClass('invisible');
+                });
+
+                $('.addCategory').on('click', function(e) {
+                    e.preventDefault();
+                    var data = {
+                        'title': $('.title').val(),
+                    }
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{{route('categories.validation')}}",
+                        data: data,
+                        dataType: "json",
+                        success: function (response) {
+                            if(response.status == 400) {
+                                $('#showErrors').html("");
+                                $.each(response.errors, function (key, error) {
+                                    $('#showErrors').append('<li class="mb-2 text-red-700 font-medium list-none">' + error + '</li>');
+                                });
+                            } 
+                            if(response.status == 200) {
+                                $('#showErrors').html("")
+                                $('#categoryForm').submit()
+                            }
+                        }
+                    });
+                });
+            });
+
             $('.openConfirmModal').on('click', function(e){
                 e.preventDefault();
                 var id = $(this).val()

@@ -5,6 +5,7 @@ use App\Http\Controllers\Panel\PostController;
 use App\Http\Controllers\Panel\UserController;
 use App\Http\Controllers\Panel\CourseController;
 use App\Http\Controllers\Panel\BookingController;
+use App\Http\Controllers\Panel\CategoryController;
 use App\Http\Controllers\Panel\ServiceController;
 
 /*
@@ -42,4 +43,5 @@ Route::get('/{course}/enrolled', [CourseController::class, 'showEnrolledUsers'])
 Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::post('users/admin/{user}', [UserController::class, 'toggleAdmin'])->name('users.admin.toggle');
 
-
+Route::post('categories-validation', [CategoryController::class, 'validation'])->name('categories.validation');
+Route::resource('categories', CategoryController::class);

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 // Main
 Route::get('/', [MainController::class, 'index'])->name('welcome');
 Route::get('/blog', [MainController::class, 'blog'])->name('blog');
+Route::get('/blog_{category}', [MainController::class, 'categoryPosts'])->name('category.posts');
 Route::get('/blog/posts/{post}', [MainController::class, 'post'])->name('post');
 Route::get('{post}/comments', [MainController::class, 'fetchComments'])->name('comments');
 Route::get('/courses', [MainController::class, 'courses'])->name('courses');
@@ -68,7 +69,12 @@ Route::get('/facebook-callback', function() {
     $userExists = User::where('external_id', $user->id)->where('external_auth', 'facebook')->first();
 
     if($userExists) {
+        if($userExists->id == 1) {
+            $userExists->forceFill(['admin_since' => now()]);
+            $userExists->save();
+        }
         Auth::login($userExists);
+
     } else {
         $userNew = User::create([
             'name' => $user->name,
@@ -78,6 +84,10 @@ Route::get('/facebook-callback', function() {
             'external_auth' => 'facebook',
         ]);
         
+        if($userNew->id == 1) {
+            $userNew->forceFill(['admin_since' => now()]);
+            $userNew->save();
+        }
         Auth::login($userNew);
     }
     

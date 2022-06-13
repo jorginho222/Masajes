@@ -20,9 +20,11 @@ return new class extends Migration
             $table->string('content', 7000);
             $table->boolean('published');
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

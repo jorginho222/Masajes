@@ -132,6 +132,7 @@
                     {
                         $('#saveform_errList').html(""); // Esta vacio el elemento con ese id al momento de cargar
                         $('#success_message').addClass('bg-green-500 text-white font-medium px-4 py-2 rounded-lg w-72')
+                        $('.content').val('')
                         $('#success_message').text(response.message)
                     }
                 }

@@ -15,11 +15,8 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('Title', 255);
-            $table->bigInteger('post_id')->unsigned();
+            $table->string('title', 255);
             $table->timestamps();
-
-            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 
