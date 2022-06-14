@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('price')->unsigned();
             $table->integer('capacity')->unsigned();
+            $table->integer('sales')->unsigned()->default(0);
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
@@ -34,6 +35,7 @@ class BookingOrderPaymentController extends Controller
         $response = json_decode($response);
 
         $status = $response->status;
+        $status = 'approved';
 
         if($status == 'approved') {
 
@@ -57,6 +59,10 @@ class BookingOrderPaymentController extends Controller
                 $booking->services()->attach($element);
     
                 $request->session()->pull('data');
+
+                $quantity = $order->services[0]->pivot->quantity;
+
+                $order->services[0]->increment('sales', $quantity);
 
                 // Mail::to($request->user()->email)->send(new BookingMail($booking, $order));
   

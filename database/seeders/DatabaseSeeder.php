@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Image;
 use App\Models\Booking;
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\Post;
 use App\Models\Service;
@@ -54,12 +55,15 @@ class DatabaseSeeder extends Seeder
             $course->users()->saveMany($users);
         });
 
-        $posts = Post::factory(10)
+        $categories = Category::factory(5)
+            ->create();
+
+        $posts = Post::factory(15)
             ->make()
-            ->each(function ($post) use ($users) {
+            ->each(function ($post) use ($users, $categories) {
+                $post->category_id = $categories->random()->id;
                 $post->user_id = $users->random()->id;
                 $post->save();
-                
                 $image = Image::factory()
                     ->post()
                     ->make();

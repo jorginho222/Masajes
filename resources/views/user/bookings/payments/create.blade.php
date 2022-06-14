@@ -41,10 +41,6 @@ $preference->save();
 <div class="container mx-auto">
     <div class="flex justify-center">
         <div class="my-6 min-w-4xl bg-white pb-6 pr-10 pl-10 shadow-lg">
-            {{-- <div class="max-w-xl my-6 bg-indigo-400 pt-1 pb-2 ">
-                <h2 class="text-3xl text-center text-gray-50">Nueva reserva de turno</h2>
-            </div> --}}
-            
             <div class="mt-6 max-w-3xl rounded">
                 <p class="pb-3 text-center text-lg text-gray-700">Confirmá tu reserva realizando el pago.</p>
                 <div class="bg-indigo-500 w-full py-1 rounded-t-md">
@@ -96,7 +92,6 @@ $preference->save();
                         </div>
                     </div>
                 </div>
-
             </div>
         
             <div class="mt-6">
@@ -107,14 +102,12 @@ $preference->save();
             </div>
             <div class="mt-6 cho-container"></div>
             
+            {{-- <a class="mt-4" href="{{route('bookings.orders.payments.pay', $order)}}">Pagar</a> --}}
         </div>
-
     </div>
-
 </div>
 
 <script src="https://sdk.mercadopago.com/js/v2"></script>
-
 <script>
     //Adicione as credenciais de sua conta Mercado Pago junto ao SDK
     const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
@@ -130,5 +123,4 @@ $preference->save();
         }
     });
 </script>
-
 @endsection

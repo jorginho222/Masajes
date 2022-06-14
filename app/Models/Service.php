@@ -34,4 +34,15 @@ class Service extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    public function isMostSold($service)
+    {
+        $mostSoldservices= Service::orderBy('sales', 'desc')
+            ->get();
+
+        $isMostSold = $mostSoldservices->where('id', '=', $service);
+            
+        return isset($isMostSold[0]) 
+            ? true 
+            : false;
+    }
 }

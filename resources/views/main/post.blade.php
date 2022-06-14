@@ -3,28 +3,26 @@
 
 <div class="container mx-auto pb-6">
     <div class="grid grid-cols-3 gap-12">
-
         <div class="col-span-2 ">
-    
             <h1 class="mt-10 text-4xl font-medium text-indigo-500">{{ $post->title }}</h1>
-            
-            @include('components.about-post')
-    
+            <div class="flex">
+                @include('components.about-post')
+                <div class="mt-7">
+                    <a href="{{ route('category.posts', ['category' => $post->category->id]) }}" class="ml-2 font-medium text-orange-400">#{{ $post->category->title }}</a>
+                </div>
+            </div>
             <div class="mt-6">
                 <img src="{{ asset($post->image->path) }}" width="1000" alt="">
             </div>
             <div class="mt-6">
                 <p class="">{{ $post->content }}</p>
             </div>
-    
             <div class="mt-10">
                 <p class="text-lg">{{ $post->quantity }} {{ $post->quantity == 1  ? 'comentario' : 'comentarios'}}</p>
             </div>
             
             <div class="users_comments mt-6">
-    
                 @isset($comments[0])
-                    
                     @foreach ($comments as $comment)
                         <div class="flex mt-6">
                             <div>
@@ -42,7 +40,6 @@
                         </div>
                     @endforeach
                 @endisset
-    
             </div>
     
             <div class="mt-6">
@@ -51,9 +48,7 @@
                 action="{{ route('comments.store', ['post' => $post->id]) }}"
                 >
                     @csrf
-                    
                     <ul id="saveform_errList"></ul>
-    
                     <div id="success_message"></div>
                     
                     <input name="post_id" class="post_id" value="{{$post->id}}" type="hidden">
@@ -82,7 +77,6 @@
                                 </div>
                                 
                                 @include('components.about-post')
-                                
                             </div> 
                         </div>
                     </div>
@@ -95,7 +89,6 @@
 @endsection
 
 @section('scripts')
-
 <script>
     $(document).ready(function () {
 

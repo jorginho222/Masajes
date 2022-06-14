@@ -21,7 +21,7 @@
                         </div>
                         <div class="my-1 border-b border-gray-300"></div>
                         <div class="mt-1">
-                            <p class="font-medium text-gray-600">&#128198; {{ $course->spanish_day }}</p>
+                            <p class="font-medium text-gray-600">&#128198; {{ $course->spanish_day }} <span class="text-gray-600 font-normal">(comienza el {{ $course->init_date->format('d/m') }})</span></p>
                         </div>
                         <div class="mt-1">
                             <p class="font-medium text-gray-600">&#9200; {{ $course->init_time->format('H:i') }} a {{ $course->finish_time->format('H:i') }} hs.</p>
