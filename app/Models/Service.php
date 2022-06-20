@@ -37,6 +37,7 @@ class Service extends Model
     public function isMostSold($service)
     {
         $mostSoldservices= Service::orderBy('sales', 'desc')
+            ->where('sales', '>=', 1)
             ->get();
 
         $isMostSold = $mostSoldservices->where('id', '=', $service);

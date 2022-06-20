@@ -18,7 +18,7 @@ $item->currency_id = "ARS";
 $item->unit_price = $order->services[0]->price;
 
 $payer = new MercadoPago\Payer();
-$user = Auth::user();
+// $user = Auth::user();
 $payer->email = 'test_user_95116427@testuser.com';
 
 $preference->back_urls = array(
