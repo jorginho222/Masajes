@@ -104,7 +104,11 @@
                         </a>
                         <p class="ml-3 text-white text-lg font-medium">v1.0 Desarrollado por Ivan Larrañaga © {{ now()->format('Y') }}</p>
                     </div>
-                    <p class="ml-2 text-white text-lg font-medium">Morón, Buenos Aires, Argentina</p>
+                    <div class="flex justify-evenly items-center text-xl text-white">
+                        <a href="https://github.com/jorginho222" target="_blank" rel="noopener noreferrer" class="border-b pb-1 px-2 hover:text-indigo-400">Github</a>
+                        <a href="https://www.linkedin.com/in/ivan-larra%C3%B1aga-7a8499b9/" target="_blank" rel="noopener noreferrer" class="border-b pb-1 px-2 hover:text-indigo-400">Linkedin</a>
+                        <a href="https://www.udemy.com/user/ivan-larranaga-2/" target="_blank" rel="noopener noreferrer" class="border-b pb-1 px-2 hover:text-indigo-400">Udemy</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -47,7 +47,7 @@
                         <div class="py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
     
                             <div class="h-screen md:h-auto max-w-lg rounded overflow-hidden shadow-lg">
-                                <img class="w-full" src="{{ asset('img/services/1.jpg') }}" width="600" alt="Sunset in the mountains">
+                                <img class="w-full" src="{{ asset('img/services/descontracturantes.jpg') }}" width="600" alt="Sunset in the mountains">
                                 <div class="px-6 py-4">
                                   <div class="font-bold text-xl mb-2">Masajes descontracturantes</div>
                                   <p class="text-gray-700 text-base">
@@ -60,7 +60,7 @@
                             </div>
                     
                             <div class="sm:hidden md:block visible max-w-lg rounded overflow-hidden shadow-lg">
-                                <img class="w-full" src="{{ asset('img/services/2.jpg') }}" width="600" alt="Sunset in the mountains">
+                                <img class="w-full" src="{{ asset('img/services/relajantes.jpg') }}" width="600" alt="Sunset in the mountains">
                                 <div class="px-6 py-4">
                                   <div class="font-bold text-xl mb-2">Masajes relajantes</div>
                                   <p class="text-gray-700 text-base">
@@ -73,7 +73,7 @@
                             </div>
                     
                             <div class="sm:hidden md:block max-w-lg rounded overflow-hidden shadow-lg">
-                                <img class="w-full" src="{{ asset('img/services/3.jpg') }}" width="600" alt="Sunset in the mountains">
+                                <img class="w-full" src="{{ asset('img/services/deportivos.jpg') }}" width="600" alt="Sunset in the mountains">
                                 <div class="px-6 py-4">
                                   <div class="font-bold text-xl mb-2">Masajes deportivos</div>
                                   <p class="text-gray-700 text-base">
@@ -95,7 +95,7 @@
                         <div class="py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
     
                             <div class="h-screen md:h-auto max-w-lg rounded overflow-hidden shadow-lg">
-                                <img class="w-full" src="{{ asset('img/services/6.jpg') }}" width="600" alt="Sunset in the mountains">
+                                <img class="w-full" src="{{ asset('img/services/spa.jpg') }}" width="600" alt="Sunset in the mountains">
                                 <div class="px-6 py-4">
                                   <div class="font-bold text-xl mb-2">Spa (Medio dia o dia completo)</div>
                                   <p class="text-gray-700 text-base">
@@ -108,7 +108,7 @@
                             </div>
                     
                             <div class="sm:hidden md:block visible max-w-lg rounded overflow-hidden shadow-lg">
-                                <img class="w-full" src="{{ asset('img/services/5.jpg') }}" width="600" alt="Sunset in the mountains">
+                                <img class="w-full" src="{{ asset('img/services/climatizado.webp') }}" width="600" alt="Sunset in the mountains">
                                 <div class="px-6 py-4">
                                   <div class="font-bold text-xl mb-2">Ambiente climatizado</div>
                                   <p class="text-gray-700 text-base">
@@ -121,7 +121,7 @@
                             </div>
                     
                             <div class="sm:hidden md:block max-w-lg rounded overflow-hidden shadow-lg">
-                                <img class="w-full" src="{{ asset('img/services/3.jpg') }}" width="600" alt="Sunset in the mountains">
+                                <img class="w-full" src="{{ asset('img/services/cursos.jpg') }}" width="600" alt="Sunset in the mountains">
                                 <div class="px-6 py-4">
                                   <div class="font-bold text-xl mb-2">Cursos</div>
                                   <p class="text-gray-700 text-base">
@@ -156,7 +156,7 @@
                             </div>
                     
                             <div class="sm:hidden md:block visible max-w-lg rounded overflow-hidden shadow-lg">
-                                <img class="w-full" src="{{ asset('img/services/2.jpg') }}" width="600" alt="Sunset in the mountains">
+                                <img class="w-full" src="{{ asset('img/services/5.jpg') }}" width="600" alt="Sunset in the mountains">
                                 <div class="px-6 py-4">
                                   <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
                                   <p class="text-gray-700 text-base">
@@ -169,7 +169,7 @@
                             </div>
                     
                             <div class="sm:hidden md:block visible max-w-lg rounded overflow-hidden shadow-lg">
-                                <img class="w-full" src="{{ asset('img/services/6.jpg') }}" width="600" alt="Sunset in the mountains">
+                                <img class="w-full" src="{{ asset('img/services/spa2.jpg') }}" width="600" alt="Sunset in the mountains">
                                 <div class="px-6 py-4">
                                   <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
                                   <p class="text-gray-700 text-base">
