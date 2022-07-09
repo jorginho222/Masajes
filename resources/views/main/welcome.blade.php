@@ -21,11 +21,6 @@
                         <div id="mira" class="mt-10 flex justify-evenly">
                             <a  class="bg-orange-300 inline-flex items-center px-4 pt-2 pb-3 rounded-full text-lg font-medium leading-5 text-white hover:bg-yellow-400 hover:text-gray-100 focus:outline-none transition duration-150 ease-in-out" href="{{route('bookings.index')}}">Sacá tu turno!</a>
                             <a  class="bg-indigo-400 inline-flex items-center px-4 pt-2 pb-3 rounded-full text-lg font-medium leading-5 text-white" href="#servicios">Mirá nuestros servicios</a>
-                            {{-- <script>
-                                document.getElementById("servicios").scrollIntoView({
-                                    behavior: 'smooth'
-                                });
-                            </script> --}}
                         </div>
                     </div>
             </div> 

@@ -31,11 +31,10 @@ class BookingOrderPaymentController extends Controller
         $payment_id = $request->get('payment_id');
 
         $response = Http::get("https://api.mercadopago.com/v1/payments/$payment_id" . "?access_token=TEST-6552556589763354-042315-db819431aca62a80d162a2097c671f5d-1111629541");
-
         $response = json_decode($response);
 
         $status = $response->status;
-        $status = 'approved';
+        // $status = 'approved';
 
         if($status == 'approved') {
 

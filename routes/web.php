@@ -1,11 +1,12 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\MainController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ContactController;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +57,7 @@ Route::get('/google-callback', function() {
         Auth::login($userNew);
     }
     
-    return redirect()->route('welcome');
+    return redirect()->intended(RouteServiceProvider::HOME);
 });
 
 Route::get('/login-facebook', function() {
@@ -91,7 +92,7 @@ Route::get('/facebook-callback', function() {
         Auth::login($userNew);
     }
     
-    return redirect()->route('welcome');
+    return redirect()->intended(RouteServiceProvider::HOME);
 });
 
 require __DIR__.'/auth.php';
